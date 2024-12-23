@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjfe276gexhfn"]
+
+[ext_resource type="Texture2D" uid="uid://y80kog1enqd0" path="res://Assets/City_men_1/Idle.png" id="1_4m8kc"]
+[ext_resource type="Script" path="res://Character/npc1/npc_1.gd" id="1_5k3de"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib1de"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyi60"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvild"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0q6i"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m82l0"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7n82"]
+atlas = ExtResource("1_4m8kc")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhhwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ib1de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyi60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvild")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0q6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m82l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7n82")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="npc1" type="CharacterBody2D"]
+script = ExtResource("1_5k3de")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xhhwe")
+animation = &"idle"

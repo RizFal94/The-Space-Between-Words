@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cp8v0wmspt1th"]
+
+[ext_resource type="Script" path="res://health_bar_galang.gd" id="1_yk3d3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fui3b"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5g15"]
+bg_color = Color(0.545098, 0, 0.0156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeko8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dssb"]
+bg_color = Color(0, 0.4, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="HealthBarGalang" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yk3d3")
+
+[node name="ProgressBar1" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 95.0
+offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_fui3b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g5g15")
+max_value = 80.0
+value = 80.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_eeko8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1dssb")
+max_value = 80.0
+value = 80.0
+show_percentage = false

@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkvapdxgiaq5t"]
+
+[ext_resource type="Script" path="res://script/depan_kelas.gd" id="1_nbjf3"]
+[ext_resource type="Texture2D" uid="uid://btbgwc5fumral" path="res://Assets/Backgrounds/LuarKelas.png" id="1_s7s31"]
+[ext_resource type="PackedScene" uid="uid://bwgn0l48ilcks" path="res://Player/player.tscn" id="3_38ci4"]
+[ext_resource type="PackedScene" uid="uid://co2v5eb6m52jt" path="res://Galang/galang.tscn" id="4_dy1e0"]
+[ext_resource type="Script" path="res://Scene/dialog_luar_kelas.gd" id="5_eneks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjoto"]
+size = Vector2(38.75, 129)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_anijv"]
+distance = -602.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byxa7"]
+size = Vector2(430.212, 112)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jewat"]
+font_size = 20
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DepanKelasScene" type="Node2D"]
+script = ExtResource("1_nbjf3")
+
+[node name="LuarKelas" type="Sprite2D" parent="."]
+position = Vector2(561.277, 342.875)
+scale = Vector2(0.798751, 0.798751)
+texture = ExtResource("1_s7s31")
+
+[node name="LuarKelas2" type="Sprite2D" parent="."]
+position = Vector2(1505.28, 342.875)
+scale = Vector2(0.798193, 0.798193)
+texture = ExtResource("1_s7s31")
+
+[node name="player" parent="." instance=ExtResource("3_38ci4")]
+position = Vector2(227, 479)
+
+[node name="Galang" parent="." instance=ExtResource("4_dy1e0")]
+position = Vector2(1368, 481)
+
+[node name="Pindah" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pindah"]
+position = Vector2(1283, 524)
+shape = SubResource("RectangleShape2D_bjoto")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_anijv")
+
+[node name="DialogLuarKelas" type="Area2D" parent="."]
+scale = Vector2(1.00216, 0.995632)
+script = ExtResource("5_eneks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogLuarKelas"]
+position = Vector2(1348.65, 534.334)
+shape = SubResource("RectangleShape2D_byxa7")
+
+[node name="Label" type="Label" parent="DialogLuarKelas"]
+offset_left = 1174.46
+offset_top = 416.821
+offset_right = 1429.46
+offset_bottom = 452.821
+text = "Tekan [E] untuk interaksi"
+label_settings = SubResource("LabelSettings_jewat")
+
+[connection signal="body_entered" from="Pindah" to="." method="_on_pindah_body_entered"]
+[connection signal="body_entered" from="DialogLuarKelas" to="DialogLuarKelas" method="_on_body_entered"]
+[connection signal="body_exited" from="DialogLuarKelas" to="DialogLuarKelas" method="_on_body_exited"]

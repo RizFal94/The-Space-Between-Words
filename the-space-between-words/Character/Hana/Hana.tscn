@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3 uid="uid://3lfn1fg1jnkn"]
+
+[ext_resource type="Texture2D" uid="uid://drqrq8ek13n73" path="res://Assets/Hana/Idle.png" id="1_k872t"]
+[ext_resource type="Script" path="res://Character/Hana/hana.gd" id="1_p8omy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swktp"]
+atlas = ExtResource("1_k872t")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw6vj"]
+atlas = ExtResource("1_k872t")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5tpq"]
+atlas = ExtResource("1_k872t")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpfed"]
+atlas = ExtResource("1_k872t")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1ark"]
+atlas = ExtResource("1_k872t")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpuou"]
+atlas = ExtResource("1_k872t")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnh3u"]
+atlas = ExtResource("1_k872t")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4k07"]
+atlas = ExtResource("1_k872t")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frh03"]
+atlas = ExtResource("1_k872t")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhvsp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swktp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw6vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5tpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpfed")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1ark")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpuou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnh3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4k07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frh03")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2k122"]
+radius = 8.0
+height = 66.0
+
+[node name="Hana" type="CharacterBody2D"]
+script = ExtResource("1_p8omy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fhvsp")
+animation = &"idle"
+frame = 4
+frame_progress = 0.0404521
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 30)
+shape = SubResource("CapsuleShape2D_2k122")

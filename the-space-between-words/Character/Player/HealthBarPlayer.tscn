@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://wlptsrfa0xl8"]
+
+[ext_resource type="Script" path="res://Character/Player/health_bar.gd" id="1_ku5s8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v2xq"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cbo7"]
+bg_color = Color(0.783693, 0, 0.0428052, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y52nn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy1ri"]
+bg_color = Color(0.12549, 0.784314, 0.207843, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ku5s8")
+
+[node name="ProgressBar1" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 10.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7v2xq")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2cbo7")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y52nn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gy1ri")
+value = 100.0
+show_percentage = false
